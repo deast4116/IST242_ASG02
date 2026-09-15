@@ -24,3 +24,7 @@ def remove_book(library):
         print(f"{title} has been removed from your library.")
     else:
         print(f"{title} is not in your library.")
+
+def list_books(library):
+    "list all books in the library"
+    
