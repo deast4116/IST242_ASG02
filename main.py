@@ -27,4 +27,9 @@ def remove_book(library):
 
 def list_books(library):
     "list all books in the library"
+    print("All books currently in library:")
+    for title in library:
+        print(f"- {title}")
+
     
+        
