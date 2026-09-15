@@ -15,3 +15,12 @@ def add_book(library):
     title = input("Enter the book title to add: ")
     library.append(title)
     print(f'"{title}" has been added to your library.')
+
+def remove_book(library):
+    "Remove a book title from the library"
+    title = input("Enter the book title to remove:")
+    if title in library:
+        library.remove(title)
+        print(f"{title} has been removed from your library.")
+    else:
+        print(f"{title} is not in your library.")
