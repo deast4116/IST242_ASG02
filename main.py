@@ -31,5 +31,11 @@ def list_books(library):
     for title in library:
         print(f"- {title}")
 
+def search_book(library):
+    "Search for a book in library"
+    title = input("Enter the book title to search for :")
+    if title in library:
+        print(f"{title} by {author} ({year}) is in your library.")
+    else:
+        print(f"{title} is not in your library.")
     
-        
