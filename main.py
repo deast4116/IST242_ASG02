@@ -34,24 +34,46 @@ def save_library(library, filename):
     
 def add_book(library):
     "Add a book title to the library"
-    title = input("Enter the book title to add: ")
-    library.append(title)
-    print(f'"{title}" has been added to your library.')
+    title = input("Enter the book title to add: ").strip()
+    author = input("Enter the author of the book: ").strip()
+
+    while True:
+        try:
+            year = int(input("Enter the year of publication: ").strip())
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid year(whole number).")
+
+    if title in library:
+        result = "updated"
+    else:
+        result = "added"
+
+    library[title] = {"author": author, "year": year}
+    print(f"{title} has been {result} in your library.")
 
 def remove_book(library):
     "Remove a book title from the library"
-    title = input("Enter the book title to remove:")
+    title = input("Enter the book title to remove:").strip()
+    
+
     if title in library:
-        library.remove(title)
+        del library[title]
         print(f"{title} has been removed from your library.")
     else:
         print(f"{title} is not in your library.")
 
 def list_books(library):
     "list all books in the library"
-    print("All books currently in library:")
-    for title in library:
-        print(f"- {title}")
+
+    number = 1
+
+    for title in books:
+        author = library[title]["author"]
+        year = library[title]["year"]
+        print(f"{number}. {title} by {author} ({year})")
+        number += 1
+
 
 def search_book(library):
     "Search for a book in library"
