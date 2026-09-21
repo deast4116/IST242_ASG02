@@ -109,6 +109,34 @@ def show_author_stats(library):
             print(f"{author}: {stats[author]} book(s)")
     
 def main():
-    
+    "Run main program"
+    filename = "library.json"
+    library = load_library(filename)
+
+    print(f"Loaded {len(library)} books from {filename}.")
+
+    while True:
+        display_menu()
+        choice = input("Enter your choice (1-6):").strip()
+
+        if choice == "1":
+            add_book(library)
+        elif choice == "2":
+            remove_book(library)
+        elif choice == "3":
+            list_books(library)
+        elif choice == "4":
+            search_book(library)
+        elif choice == "5":
+            show_author_stats(library)
+        elif choice == "6":
+            save_library(library, filename)
+            print(f"Library saved to {filename}. See you next time.")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 6.")
+
+if name__ == "__main__":
+    main()
 
     
