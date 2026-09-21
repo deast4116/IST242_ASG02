@@ -1,8 +1,6 @@
 import json
 
 
-
-
 def display_menu():
     "Display the first menu that appears when the program is run"
     print("\n === Personal Library Manager===")
@@ -136,7 +134,6 @@ def main():
         else:
             print("Invalid choice. Please enter a number between 1 and 6.")
 
-if name__ == "__main__":
+if __name__ == "__main__":
     main()
 
-    
