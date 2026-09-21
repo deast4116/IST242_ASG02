@@ -77,11 +77,38 @@ def list_books(library):
 
 def search_book(library):
     "Search for a book in library"
-    title = input("Enter the book title to search for :")
-    if title in library:
-        print(f"{title} by {author} ({year}) is in your library.")
-    else:
-        print(f"{title} is not in your library.")
+    title = input("Enter the book title to search for :").strip().lower()
+    match = {}
 
+    for title in library:
+        if title.lower() == title:
+            match[title] = library[title]
+
+    if len(match) == 0:
+        print(f"{title} is not in your library.")
+    else:
+        list_books(match)
+
+def show_author_stats(library):
+    "Show number of books written by each author in the library"
+    stats = {}
+
+    for title in library:
+        author = library[title]["author"]
+
+        if author in stats:
+            stats[author] += 1
+        else:
+            stats[author] = 1
+
+    if len(stats) == 0:
+        print("No books in your library.")
+    else:
+        print("Books per author:")
+        for author in stats:
+            print(f"{author}: {stats[author]} book(s)")
+    
+def main():
+    
 
     
