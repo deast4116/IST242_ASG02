@@ -6,7 +6,7 @@ from io import StringIO
 from contextlib import redirect_stdout
 from unittest.mock import patch
 
-from main.py import (
+from main import (
     load_library,
     save_library,
     add_book,
